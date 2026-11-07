@@ -1,0 +1,292 @@
+/* ============================================================
+ * SWAYNC — Generado por matugen
+ * Estilo: Pastel Pop · Islands Edition
+ * ============================================================ */
+
+
+/* ── Material You ───────────────────────────────────────────── */
+
+@define-color base         {{ colors.background.dark.hex }};
+@define-color mantle       {{ colors.surface_container_lowest.dark.hex }};
+@define-color surface      {{ colors.surface_container.dark.hex }};
+@define-color surface_alt  {{ colors.surface_container_high.dark.hex }};
+@define-color text         {{ colors.on_background.dark.hex }};
+@define-color subtext      {{ colors.on_surface_variant.dark.hex }};
+@define-color primary      {{ colors.primary.dark.hex }};
+@define-color p_container  {{ colors.primary_container.dark.hex }};
+@define-color on_primary   {{ colors.on_primary.dark.hex }};
+@define-color on_p_cont    {{ colors.on_primary_container.dark.hex }};
+@define-color tertiary     {{ colors.tertiary.dark.hex }};
+@define-color t_container  {{ colors.tertiary_container.dark.hex }};
+@define-color on_t_cont    {{ colors.on_tertiary_container.dark.hex }};
+@define-color outline      {{ colors.outline_variant.dark.hex }};
+
+
+/* ============================================================
+ * Variables
+ * ============================================================ */
+
+:root {
+  --border-radius: 22px;
+
+  /* Sin transparencia */
+  --cc-bg: @base;
+
+  /* Superficie completamente opaca */
+  --widget-background: @surface;
+
+  --noti-bg-alpha: 1.0;
+
+  --padding: calc(var(--border-radius) / 2);
+}
+
+
+/* ============================================================
+ * Control Center
+ * ============================================================ */
+
+.control-center {
+  background: @base;
+  border-radius: 22px;
+  margin: 8px;
+  padding: 8px;
+  color: @text;
+}
+
+
+/* ============================================================
+ * Control Center List
+ * ============================================================ */
+
+.control-center-list {
+  background: @base;
+
+  /* Ocupa el espacio disponible */
+  min-height: 0;
+
+  /* Permite que la lista crezca */
+  padding: 0;
+
+  /* Scroll interno */
+  overflow-y: auto;
+}
+
+/* ============================================================
+ * Empty Notification List
+ * ============================================================ */
+
+.control-center-list-placeholder {
+  padding: var(--border-radius);
+  color: @subtext;
+}
+
+
+/* ============================================================
+ * Widget Title
+ * ============================================================ */
+
+.widget-title {
+  color: @text;
+}
+
+.widget-title > button {
+  background: @p_container;
+  color: @on_p_cont;
+  border: 1px solid @primary;
+  border-radius: var(--border-radius);
+  padding: 8px 14px;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.widget-title > button:hover {
+  background: @primary;
+  color: @on_primary;
+  border-color: @primary;
+}
+
+
+/* ============================================================
+ * Widgets — Espaciado uniforme
+ * ============================================================ */
+
+.widgets {
+  padding: 0;
+  margin: 0;
+}
+
+.widgets > .widget {
+  background: @surface;
+  border: 1px solid @outline;
+  border-radius: var(--border-radius);
+  padding: var(--padding);
+  margin: 4px 0;
+  color: @text;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+/* ============================================================
+ * Notification Groups
+ * ============================================================ */
+
+.notification-group {
+  border-radius: var(--border-radius);
+  padding: 0;
+  margin: 4px 0;
+}
+
+
+/* ============================================================
+ * MPRIS
+ * ============================================================ */
+
+.widget.widget-mpris {
+  background: @surface;
+  border: 1px solid @outline;
+  border-radius: var(--border-radius);
+  padding: var(--padding);
+  margin: 4px 0;
+  min-height: 140px;
+  color: @text;
+}
+
+.widget-mpris > carouselindicatordots {
+  --dots-padding: 4px;
+
+  padding: var(--dots-padding);
+  padding-left: var(--dots-padding);
+  padding-right: calc(6px + var(--dots-padding));
+
+  margin: 0;
+  margin-top: var(--padding);
+
+  background: @surface;
+  border: none;
+}
+
+.widget-mpris > box > button {
+  background: @surface;
+  color: @text;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.widget-mpris > box > button:hover {
+  background: @tertiary;
+  color: @text;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.widget-mpris-player {
+  box-shadow: none;
+  border: none;
+  margin: 0;
+  min-height: 140px;
+}
+
+.widget-mpris-player:only-child {
+  margin: 0;
+}
+
+
+/* ============================================================
+ * Notificaciones
+ * ============================================================ */
+
+.notification {
+  background: @surface;
+  border: 1px solid @outline;
+  border-radius: var(--border-radius);
+  color: @text;
+
+  margin: 4px 0;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+/* ============================================================
+ * Notification Title
+ * ============================================================ */
+
+.notification .summary {
+  color: @primary;
+  font-weight: 700;
+}
+
+
+/* ============================================================
+ * Notification Body
+ * ============================================================ */
+
+.notification .body {
+  color: @text;
+}
+
+
+/* ============================================================
+ * Notification Icon
+ * ============================================================ */
+
+.notification image {
+  color: @primary;
+}
+
+
+/* ============================================================
+ * Notification Hover
+ * ============================================================ */
+
+.notification:hover {
+  background: @surface_alt;
+  border-color: @primary;
+}
+
+
+/* ============================================================
+ * Low Priority / OSD
+ * ============================================================ */
+
+.notification.low {
+  background: @surface;
+  border: 1px solid @primary;
+  border-radius: var(--border-radius);
+  color: @text;
+
+  box-shadow:
+    0 8px 30px @base,
+    0 0 20px @primary;
+}
+
+
+/* ============================================================
+ * Low Priority Title
+ * ============================================================ */
+
+.notification.low .summary {
+  color: @primary;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* ============================================================
+ * Low Priority Body
+ * ============================================================ */
+
+.notification.low .body {
+  color: @text;
+  font-size: 14px;
+  font-weight: 500;
+}

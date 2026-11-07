@@ -1,0 +1,134 @@
+# ~/.config/matugen/templates/starship.toml
+# Starship + Matugen
+
+format = """
+[](fg:#ffb0c9)\
+$username\
+[](bg:#f3b7bd fg:#ffb0c9)\
+$hostname\
+[](bg:#ffb4ac fg:#f3b7bd)\
+$directory\
+[](fg:#ffb4ac)\
+$git_branch\
+$git_status\
+$cmd_duration\
+$time\
+$line_break\
+$character"""
+
+add_newline = true
+
+
+# ─────────────────────────────────────────────
+# Usuario
+# ─────────────────────────────────────────────
+
+[username]
+show_always = true
+
+style_user = "bg:#ffb0c9 fg:#650034 bold"
+style_root = "bg:#ffb4ab fg:#690005 bold"
+
+format = "[✦ $user]($style)"
+
+
+# ─────────────────────────────────────────────
+# Hostname
+# ─────────────────────────────────────────────
+
+[hostname]
+ssh_only = false
+
+style = "bg:#f3b7bd fg:#4b252a bold"
+
+format = "[@$hostname]($style)"
+
+
+# ─────────────────────────────────────────────
+# Directorio
+# ─────────────────────────────────────────────
+
+[directory]
+style = "bg:#ffb4ac fg:#53201c bold"
+
+format = "[ ◈ $path ]($style)"
+
+truncation_length = 3
+truncation_symbol = "…/"
+
+
+[directory.substitutions]
+"Documents" = "▣"
+"Downloads" = "⇩"
+"Music" = "♫"
+"Pictures" = "▧"
+"Videos" = "▶"
+"Projects" = "⌘"
+
+
+# ─────────────────────────────────────────────
+# Git branch
+# ─────────────────────────────────────────────
+
+[git_branch]
+symbol = "⎇ "
+
+style = "bg:#8e004c fg:#ffd9e3 bold"
+
+format = "[](fg:#8e004c)[ $symbol$branch ]($style)[](fg:#8e004c)"
+
+
+# ─────────────────────────────────────────────
+# Git status
+# ─────────────────────────────────────────────
+
+[git_status]
+style = "bold #ffb0c9"
+
+format = "[( $all_status$ahead_behind)]($style)"
+
+conflicted = "✖ "
+ahead = "↑${count} "
+behind = "↓${count} "
+diverged = "↕${ahead_count}↓${behind_count} "
+untracked = "… "
+modified = "● "
+staged = "✓ "
+renamed = "» "
+deleted = "− "
+
+
+# ─────────────────────────────────────────────
+# Duración del comando
+# ─────────────────────────────────────────────
+
+[cmd_duration]
+min_time = 2_000
+
+style = "bold #ffb4ac"
+
+format = " ⏱ [$duration]($style)"
+disabled = false
+
+
+# ─────────────────────────────────────────────
+# Hora
+# ─────────────────────────────────────────────
+
+[time]
+disabled = false
+
+style = "bold #ffb0c9"
+
+format = " ⯈ [$time]($style)"
+
+time_format = "%I:%M %p"
+
+
+# ─────────────────────────────────────────────
+# Prompt
+# ─────────────────────────────────────────────
+
+[character]
+success_symbol = "[╭─ ⮞](bold #ffb0c9) "
+error_symbol = "[╭─ ⮞](bold #ffb4ab) "

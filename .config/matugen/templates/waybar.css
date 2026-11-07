@@ -1,0 +1,242 @@
+/* ============================================================
+ * WAYBAR — Generado por matugen
+ * Estilo: Pildoras flotantes (como la barra de OozeShell)
+ * ============================================================ */
+
+
+/* ============================================================
+ * PALETA MATUGEN (no tocar: la genera matugen)
+ * ============================================================ */
+
+/* Fondos dinámicos */
+@define-color base         {{ colors.background.dark.hex }};
+@define-color mantle       {{ colors.surface_container_lowest.dark.hex }};
+@define-color surface      {{ colors.surface_container_low.dark.hex }};
+@define-color surface_alt  {{ colors.surface_container.dark.hex }};
+
+/* Texto */
+@define-color text         {{ colors.on_background.dark.hex }};
+@define-color subtext      {{ colors.on_surface_variant.dark.hex }};
+
+/* Acento principal */
+@define-color primary      {{ colors.primary.dark.hex }};
+@define-color p_container  {{ colors.primary_container.dark.hex }};
+@define-color on_primary   {{ colors.on_primary.dark.hex }};
+@define-color on_p_cont    {{ colors.on_primary_container.dark.hex }};
+
+/* Estados */
+@define-color error        {{ colors.error.dark.hex }};
+
+/* Bordes */
+@define-color outline      {{ colors.outline_variant.dark.hex }};
+
+
+/* ============================================================
+ * RESET GLOBAL
+ * ============================================================ */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.2s ease;
+
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ============================================================
+ * WAYBAR ROOT — transparente: flotan los tres grupos
+ * ============================================================ */
+
+window#waybar {
+    background-color: transparent;
+    color: @text;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    background-color: @surface;
+    border: 1px solid @outline;
+    border-radius: 12px;
+    padding: 2px 6px;
+    margin: 0;
+}
+
+
+/* ============================================================
+ * REGLA GENERAL PARA MÓDULOS (sin padding externo)
+ * ============================================================ */
+
+#custom-power,
+#power-profiles-daemon,
+#language,
+#custom-mpris,
+#cava,
+#custom-notifications,
+#workspaces,
+#clock,
+#cpu,
+#memory,
+#custom-gpu,
+#pulseaudio,
+#bluetooth,
+#keyboard-state,
+#network,
+#privacy,
+#taskbar,
+#tray {
+    background: transparent;
+    color: @text;
+    border: none;
+    border-radius: 8px;
+    margin: 0;
+    padding: 0 8px;
+}
+
+
+/* ============================================================
+ * HOVERS INDIVIDUALES
+ * ============================================================ */
+
+#custom-power:hover,
+#power-profiles-daemon:hover,
+#language:hover,
+#custom-mpris:hover,
+#custom-notifications:hover,
+#clock:hover,
+#cpu:hover,
+#memory:hover,
+#custom-gpu:hover,
+#pulseaudio:hover,
+#bluetooth:hover,
+#keyboard-state:hover,
+#network:hover,
+#privacy:hover {
+    background-color: alpha(@text, 0.08);
+    color: @primary;
+}
+
+
+/* ============================================================
+ * DETALLES ESPECÍFICOS DE MÓDULOS
+ * ============================================================ */
+
+/* Power destacado */
+#custom-power {
+    color: @primary;
+}
+
+#custom-power:hover {
+    background-color: alpha(@primary, 0.15);
+}
+
+/* MPRIS */
+#custom-mpris {
+    min-width: 180px;
+    font-weight: 800;
+}
+
+/* CAVA */
+#cava {
+    color: @primary;
+    font-size: 10px;
+    padding: 0 6px;
+}
+
+/* Notificaciones en cero */
+#custom-notifications.none {
+    color: @subtext;
+}
+
+/* Workspaces */
+#workspaces {
+    padding: 0 2px;
+    background: transparent;
+}
+
+#workspaces button {
+    background: transparent;
+    color: alpha(@text, 0.48);
+    border-radius: 8px;
+    font-size: 13px;
+    padding: 0 8px;
+    margin: 3px 2px;
+}
+
+#workspaces button:hover {
+    background-color: alpha(@text, 0.12);
+    color: @text;
+}
+
+#workspaces button.active {
+    background-color: @p_container;
+    color: @on_p_cont;
+}
+
+#workspaces button.occupied {
+    color: @text;
+}
+
+#workspaces button.persistent {
+    color: alpha(@text, 0.30);
+}
+
+#workspaces button.urgent {
+    background-color: alpha(@error, 0.20);
+    color: @error;
+}
+
+/* Taskbar */
+#taskbar button {
+    background: transparent;
+    color: @text;
+    border-radius: 8px;
+    padding: 2px 6px;
+    margin: 2px 1px;
+}
+
+#taskbar button:hover {
+    background-color: alpha(@text, 0.08);
+}
+
+#taskbar button.active {
+    background-color: @p_container;
+    color: @on_p_cont;
+}
+
+/* Tray */
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+/* Caps Lock activado */
+#keyboard-state.capslock.locked {
+    background-color: @primary;
+    color: @on_primary;
+}
+
+/* Privacidad */
+#privacy-item.screenshare {
+    color: @error;
+}
+
+#privacy-item.audio-in,
+#privacy-item.video-in {
+    color: @primary;
+}

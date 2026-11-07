@@ -1,0 +1,243 @@
+/* ═══════════════════════════════════════════════════════════
+   Material You · Powermenu
+   Cute Remix · Match with Main
+   ═══════════════════════════════════════════════════════════ */
+
+configuration {
+    show-icons: true;
+}
+
+/* ── Material You ─────────────────────────────────────────── */
+
+@import "colors.rasi"
+
+
+/* ── Global ───────────────────────────────────────────────── */
+
+* {
+    font:               "JetBrainsMono Nerd Font Bold 12";
+    background-color:   transparent;
+    text-color:         @ml-text;
+    accent:             @primary;
+    bg-surface:         @surface;
+    border-col:         @outline;
+    selected-bg:        @p-container;
+    selected-fg:        @on-p-cont;
+}
+
+
+/* ── Window ───────────────────────────────────────────────── */
+
+window {
+    transparency:       "real";
+    location:           center;
+    anchor:             center;
+    fullscreen:         true;
+    cursor:             default;
+    
+    /* 
+     * Relleno opaco oscuro detrás de los botones.
+     * Puedes usar código HEX de 8 dígitos (#RRGGBBAA) 
+     * o rgba(0, 0, 0, 0.6) para controlar el nivel de oscuridad.
+     */
+    background-color:   #000000a0; 
+
+    padding:            0px;
+    children:           [ "mainbox" ];
+}
+
+
+/* ── Mainbox ──────────────────────────────────────────────── */
+
+mainbox {
+    enabled:            true;
+    spacing:            28px;
+    margin:             0px;
+    padding:            0px 120px;
+    background-color:   transparent;
+    children:           [
+        "dummy",
+        "userimage-box",
+        "inputbar",
+        "message",
+        "listview",
+        "dummy"
+    ];
+}
+
+
+/* ── User Image ───────────────────────────────────────────── */
+
+userimage-box {
+    background-color:   transparent;
+    orientation:        horizontal;
+    children:           [
+        "dummy",
+        "userimage",
+        "dummy"
+    ];
+}
+
+userimage {
+    width:              190px;
+    height:             190px;
+    expand:             false;
+    /*
+     * Igual que los botones:
+     * surface = cuerpo
+     * outline = borde
+     */
+    background-color:   @base;
+    background-image:   url("~/.config/rofi/images/user.png", height);
+    border:             2px solid;
+    border-color:       @outline;
+    border-radius:      100%;
+}
+
+
+/* ── Inputbar ─────────────────────────────────────────────── */
+
+inputbar {
+    enabled:            true;
+    spacing:            0px;
+    padding:            7px 18px;
+    horizontal-align:   0.5;
+    children:           [
+        "dummy",
+        "prompt",
+        "dummy"
+    ];
+}
+
+prompt {
+    enabled:            true;
+    background-color:   @base;
+    border:             1px solid;
+    padding:            7px 18px;
+    border-radius:      8px;
+    border-color:       @outline;
+    text-color:         @primary;
+    font:               "JetBrainsMono Nerd Font Bold 24";
+    str:                "Goodbye ✧ !!";
+}
+
+
+/* ── Message ──────────────────────────────────────────────── */
+
+message {
+    enabled:            true;
+    margin:             0px 100px;
+    padding:            10px 20px;
+    width:              190px;
+    /*
+     * Mismo surface que el Main usa para
+     * inputbar / botones / elementos activos.
+     */
+    background-color:   @base;
+    border-radius:      12px;
+    border:             1px solid;
+    border-color:       @outline;
+}
+
+textbox {
+    background-color:   transparent;
+    text-color:         @subtext;
+    vertical-align:     0.5;
+    horizontal-align:   0.5;
+    font:               "JetBrainsMono Nerd Font 11";
+}
+
+
+/* ── Listview ─────────────────────────────────────────────── */
+
+listview {
+    enabled:            true;
+    columns:            5;
+    lines:              1;
+    cycle:              true;
+    dynamic:            true;
+    scrollbar:          false;
+    layout:             vertical;
+    reverse:            false;
+    fixed-height:       true;
+    fixed-columns:      true;
+    spacing:            18px;
+    margin:             0px 40px;
+    background-color:   transparent;
+    cursor:              default;
+}
+
+
+/* ── Elements / Buttons ───────────────────────────────────── */
+
+element {
+    enabled:            true;
+    spacing:            10px;
+    margin:             0px;
+    padding:            20px 10px;
+    /*
+     * Igual que los botones del Main.
+     */
+    background-color:   @base;
+    text-color:         @subtext;
+    border:             2px solid;
+    border-color:       @outline;
+    border-radius:      12px;
+    orientation:        vertical;
+    cursor:              pointer;
+}
+
+
+/* ── Icons ────────────────────────────────────────────────── */
+
+element-icon {
+    background-color:   transparent;
+    text-color:         inherit;
+    size:               40px;
+    cursor:             inherit;
+    horizontal-align:   0.5;
+}
+
+
+/* ── Text ─────────────────────────────────────────────────── */
+
+element-text {
+    background-color:   transparent;
+    text-color:         inherit;
+    highlight:          inherit;
+    cursor:             inherit;
+    vertical-align:     0.5;
+    horizontal-align:   0.5;
+
+    font:               "JetBrainsMono Nerd Font Bold 11";
+}
+
+
+/* ── Normal ───────────────────────────────────────────────── */
+
+element normal.normal {
+    background-color:   @base;
+    text-color:         @subtext;
+    border:             2px solid;
+    border-color:       @outline;
+    border-radius:      12px;
+}
+
+
+/* ── Selected ─────────────────────────────────────────────── */
+
+element selected.normal {
+    background-color:   @p-container;
+    text-color:         @on-p-cont;
+    border:             2px solid;
+    border-color:       @primary;
+    border-radius:      12px;
+}
+
+
+/* ── Utilities ────────────────────────────────────────────── */
+
+dummy {
+    expand:             true;
+    background-color:   transparent;
+}

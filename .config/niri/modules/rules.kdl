@@ -1,0 +1,92 @@
+// ============================================================================
+// WINDOW RULES
+// ============================================================================
+//
+// Niri rules are ordered. They use app-id/title regular expressions instead
+// of Hyprland class/title matching.
+//
+// Niri has no need for a "Steam main window must tile" rule because regular
+// windows already enter the tiling layout. The Steam secondary-window rule
+// is preserved.
+//
+// NOTE: Verify app IDs/titles with:
+//   niri msg pick-window
+// ============================================================================
+
+// ---------------------------------------------------------------------------
+// Steam
+// ---------------------------------------------------------------------------
+
+// Steam Friends / Settings and other secondary windows float.
+// The main Steam window is intentionally not forced because normal Niri
+// tiling already gives it the desired behavior.
+window-rule {
+    match app-id=r#"(?i)^steam$"#
+    // Rust's regex engine used by Niri does not support look-ahead.
+    // Exclude the main Steam window explicitly instead.
+    exclude title=r#"^Steam$"#
+    open-floating true
+    shadow {
+        off
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Touhou Fuujinroku
+// ---------------------------------------------------------------------------
+//
+// The original Hyprland rule used a Wine/XWayland class/title combination.
+// Niri's matcher is app-id/title. The title is kept broad enough to avoid
+// relying on the corrupted encoding visible in the old Lua file.
+window-rule {
+    match app-id=r#"(?i)^th10tr\.exe$"#
+    open-floating true
+    focus-ring {
+        off
+    }
+    border {
+        off
+    }
+}
+
+// Blueman float
+
+window-rule {
+    match app-id=r#"(?i)^.blueman-manager-wrapped$"#
+    open-floating true
+    focus-ring {
+        off
+    }
+    border {
+        off
+    }
+
+}
+
+
+// Keep a simple per-window geometry rule equivalent to the old visual style.
+window-rule {
+    match app-id="^com\\.mitchellh\\.ghostty$"
+    geometry-corner-radius 6
+    clip-to-geometry true
+}
+
+window-rule { 
+    match app-id="org.quickshell"; 
+    open-floating true;
+    border {
+        off
+    }
+    default-column-width { fixed 980; }
+    default-window-height { fixed 800; }
+ }
+
+// OozeShell — blur
+layer-rule {
+    match namespace="^oozeshell-widget$"
+
+    background-effect {
+        blur true
+        xray false
+    }
+}

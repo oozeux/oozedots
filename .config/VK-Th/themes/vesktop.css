@@ -1,0 +1,112 @@
+/**
+ * @name Material You Discord · OozeShell Edition
+ * @version 2.0.0
+ * @description Tema dinámico personalizado sincronizado con Matugen y la estética de OozeShell/KDE.
+ * @base-theme Material Discord by CapnKitten
+ * @source-original https://github.com/CapnKitten/BetterDiscord/blob/master/Themes/Material-Discord/css/source.css
+ */
+
+@import url("https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/css/source.css");
+@import url("https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/css/addons/material-you/source.css");
+
+/* ============================================================
+   PALETA DINÁMICA DE MATUGEN (Coincide con tu Widget)
+   ============================================================ */
+
+:root {
+    /* Tipografía mono/moderna tipo consola/shell */
+    --app-font: "JetBrains Mono", "Geist Mono", "Google Sans Flex", sans-serif;
+    
+    /* Bordes redondeados más pronunciados tipo Pill/Parchment */
+    --message-radius: 16px;
+    --card-radius: 16px;
+    --card-radius-big: 24px;
+    --popout-radius: 18px;
+    --popout-radius-big: 24px;
+    --button-radius: 12px;
+    
+    /* Colores directos mapeados desde Matugen */
+    --accent-hue: 341;
+    --accent-saturation: 100%;
+    --accent-lightness: 84%;
+    
+    /* Mapeo de superficies para replicar los contenedores del widget */
+    --bg-base: #1c1014;                      /* Fondo general más oscuro */
+    --bg-surface: #25181c;      /* Fondo de paneles laterales */
+    --bg-card: #2a1c20;             /* Tarjetas/Contenedores (ej. tarjetas CPU) */
+    --bg-card-hover: #35262a;    /* Estado hover de tarjetas */
+    --accent-color: #8e004c;        /* Azul pastel del botón activo (ej. Balanced) */
+    --accent-text: #ffd9e3;      /* Texto sobre el botón activo */
+    
+    --text-normal: #f6dce2;                /* Texto principal */
+    --text-muted: #d9c1c6;         /* Texto secundario/etiquetas */
+}
+
+/* ============================================================
+   SOBREESCRITURA DE ESTILOS PARA COINCIDIR CON LA CAPA DE UI
+   ============================================================ */
+
+/* Fondo general de la aplicación */
+.theme-dark, .theme-light {
+    --background-primary: var(--bg-base) !important;
+    --background-secondary: var(--bg-surface) !important;
+    --background-secondary-alt: var(--bg-surface) !important;
+    --background-tertiary: var(--bg-base) !important;
+    --background-floating: var(--bg-card) !important;
+    
+    /* Estilo de tarjetas y mensajes */
+    --background-message-hover: var(--bg-card) !important;
+    --channeltextarea-background: var(--bg-card) !important;
+    
+    /* Colores de texto */
+    --text-normal: #f6dce2 !important;
+    --text-muted: #d9c1c6 !important;
+}
+
+/* Contenedores redondos e independientes estilo Widget */
+.container__590e2, 
+.members__9bfb1, 
+.sidebar_ded4b5 {
+    border-radius: 20px !important;
+    margin: 4px !important;
+}
+
+/* Botones seleccionados o activos (Como el botón "Balanced" de tu imagen) */
+.option-1234, 
+.selected__0b431,
+.categoryItemDefaultCategorySelected__75837 {
+    background-color: #8e004c !important;
+    color: #ffd9e3 !important;
+    border-radius: 12px !important;
+}
+
+/* Barras de desplazamiento estilizadas y delgadas */
+::-webkit-scrollbar-thumb {
+    background-color: #534247 !important;
+    border-radius: 8px !important;
+}
+
+/* ============================================================
+   CANALES LEÍDOS / SIN MENSAJES NUEVOS (MÁS OPACOS)
+   ============================================================ */
+
+/* Texto e icono de canales normales (sin novedades) */
+.channel_c91f08:not(.modeUnread_c91f08) .name__2ea32,
+.channel_c91f08:not(.modeUnread_c91f08) .icon__2ea32 {
+    opacity: 0.35 !important;
+    transition: opacity 0.15s ease-in-out;
+}
+
+/* Al pasar el cursor por encima (hover), recuperan un poco de visibilidad */
+.channel_c91f08:not(.modeUnread_c91f08):hover .name__2ea32,
+.channel_c91f08:not(.modeUnread_c91f08):hover .icon__2ea32 {
+    opacity: 0.85 !important;
+}
+
+/* Canales CON mensajes no leídos (se mantienen resaltados y claros) */
+.modeUnread_c91f08 .name__2ea32,
+.modeUnread_c91f08 .icon__2ea32 {
+    opacity: 1 !important;
+    color: #ffb0c9 !important;
+    font-weight: 600 !important;
+}

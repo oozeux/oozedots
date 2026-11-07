@@ -1,0 +1,94 @@
+/* ============================================================
+ * SWAYOSD — Generado por matugen
+ * Estilo: Dynamic Catppuccin · Pastel Pop · Islands
+ * ============================================================ */
+
+
+/* ============================================================
+ * PALETA MATUGEN
+ * ============================================================ */
+
+@define-color base         #1d1010;
+@define-color mantle       #180b0b;
+@define-color surface      #261818;
+@define-color surface_alt  #2b1c1c;
+
+@define-color text          #f8dcdc;
+@define-color subtext       #dbc0c1;
+
+@define-color primary       #ffb3b6;
+@define-color p_container   #920028;
+@define-color on_primary    #68001a;
+@define-color on_p_cont     #ffdada;
+
+@define-color error         #ffb4ab;
+@define-color outline       #554243;
+
+
+/* ============================================================
+ * WINDOW
+ * ============================================================ */
+
+window {
+    background: alpha(@surface, 0.96);
+
+    border-radius: 20px;
+    border: 2px solid alpha(@primary, 0.75);
+
+    color: @text;
+}
+
+
+/* ============================================================
+ * CONTAINER
+ * ============================================================ */
+
+#container {
+    margin: 16px;
+}
+
+
+/* ============================================================
+ * PROGRESS
+ * ============================================================ */
+
+progress {
+    background: alpha(@outline, 0.7);
+    color: @primary;
+
+    border-radius: 10px;
+
+    min-height: 10px;
+}
+
+
+/* ============================================================
+ * LABELS
+ * ============================================================ */
+
+label {
+    color: @text;
+}
+
+
+/* ============================================================
+ * BUTTONS
+ * ============================================================ */
+
+button {
+    background: transparent;
+    color: @text;
+
+    border: none;
+    border-radius: 8px;
+}
+
+button:hover {
+    background: alpha(@primary, 0.12);
+    color: @primary;
+}
+
+button:active {
+    background: alpha(@primary, 0.20);
+    color: @primary;
+}
