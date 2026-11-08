@@ -2,13 +2,13 @@
 # Starship + Matugen
 
 format = """
-[](fg:#ffb0c9)\
+[](fg:#ffb4ac)\
 $username\
-[](bg:#f3b7bd fg:#ffb0c9)\
+[](bg:#f5b9a1 fg:#ffb4ac)\
 $hostname\
-[](bg:#ffb4ac fg:#f3b7bd)\
+[](bg:#fbb983 fg:#f5b9a1)\
 $directory\
-[](fg:#ffb4ac)\
+[](fg:#fbb983)\
 $git_branch\
 $git_status\
 $cmd_duration\
@@ -26,7 +26,7 @@ add_newline = true
 [username]
 show_always = true
 
-style_user = "bg:#ffb0c9 fg:#650034 bold"
+style_user = "bg:#ffb4ac fg:#690007 bold"
 style_root = "bg:#ffb4ab fg:#690005 bold"
 
 format = "[✦ $user]($style)"
@@ -39,7 +39,7 @@ format = "[✦ $user]($style)"
 [hostname]
 ssh_only = false
 
-style = "bg:#f3b7bd fg:#4b252a bold"
+style = "bg:#f5b9a1 fg:#4b2716 bold"
 
 format = "[@$hostname]($style)"
 
@@ -49,7 +49,7 @@ format = "[@$hostname]($style)"
 # ─────────────────────────────────────────────
 
 [directory]
-style = "bg:#ffb4ac fg:#53201c bold"
+style = "bg:#fbb983 fg:#4d2700 bold"
 
 format = "[ ◈ $path ]($style)"
 
@@ -73,9 +73,9 @@ truncation_symbol = "…/"
 [git_branch]
 symbol = "⎇ "
 
-style = "bg:#8e004c fg:#ffd9e3 bold"
+style = "bg:#93000e fg:#ffdad6 bold"
 
-format = "[](fg:#8e004c)[ $symbol$branch ]($style)[](fg:#8e004c)"
+format = "[](fg:#93000e)[ $symbol$branch ]($style)[](fg:#93000e)"
 
 
 # ─────────────────────────────────────────────
@@ -83,7 +83,7 @@ format = "[](fg:#8e004c)[ $symbol$branch ]($style)[](fg:#8e004c)"
 # ─────────────────────────────────────────────
 
 [git_status]
-style = "bold #ffb0c9"
+style = "bold #ffb4ac"
 
 format = "[( $all_status$ahead_behind)]($style)"
 
@@ -105,7 +105,7 @@ deleted = "− "
 [cmd_duration]
 min_time = 2_000
 
-style = "bold #ffb4ac"
+style = "bold #fbb983"
 
 format = " ⏱ [$duration]($style)"
 disabled = false
@@ -118,7 +118,7 @@ disabled = false
 [time]
 disabled = false
 
-style = "bold #ffb0c9"
+style = "bold #ffb4ac"
 
 format = " ⯈ [$time]($style)"
 
@@ -130,5 +130,5 @@ time_format = "%I:%M %p"
 # ─────────────────────────────────────────────
 
 [character]
-success_symbol = "[╭─ ⮞](bold #ffb0c9) "
+success_symbol = "[╭─ ⮞](bold #ffb4ac) "
 error_symbol = "[╭─ ⮞](bold #ffb4ab) "

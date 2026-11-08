@@ -11,3 +11,9 @@ hl.window_rule({
     match = { class = [[^firefox$]] },
     no_screen_share = true,
 })
+
+hl.window_rule({
+    name = "ooze-hide-window-3",
+    match = { class = [[^discord$]] },
+    no_screen_share = true,
+})
